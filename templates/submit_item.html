@@ -1,0 +1,25 @@
+<!-- templates/submit_item.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Submit New Item</title>
+</head>
+<body>
+    <h2>Submit New Item</h2>
+    <form action="/submit" method="post" enctype="multipart/form-data">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea><br><br>
+        
+        <label for="image">Image:</label>
+        <input type="file" id="image" name="image" accept="image/*" required><br><br>
+        
+        <input type="submit" value="Submit">
+    </form>
+    <!-- Link back to the home page -->
+    <a href="{{ url_for('home') }}">Back to Home</a>
+</body>
+</html>

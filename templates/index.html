@@ -1,0 +1,28 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+    <h1>URL Previews</h1>
+    {% for item in items %}
+    <div>
+        <h3><a href="{{ item['url'] }}" target="_blank">{{ item['title'] }}</a></h3>
+        <img src="{{ item['image'] }}" alt="Image preview" style="width: 100px;">
+        <p>{{ item['description'] }}</p>
+    </div>
+    {% endfor %}
+    <h1>Welcome to the Item Submission Site</h1>
+    <!-- Link to the submit page -->
+    <a href="{{ url_for('submit_item') }}">Submit New Item</a>
+    {% for item in items %}
+    <div>
+        <h2>{{ item['name'] }}</h2>
+        <p>{{ item['description'] }}</p>
+        <img src="{{ url_for('static', filename='images/' + item['image_filename']) }}" alt="{{ item['name'] }}" width="100">
+    </div>
+    {% endfor %}
+</body>
+</html>
